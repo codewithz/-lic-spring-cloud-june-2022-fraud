@@ -14,10 +14,9 @@ public class FraudCheckHistoryController {
     FraudCheckHistoryService service;
 
     @GetMapping("/{customerId}")
-    public FraudCheckHistory isFraudster(@PathVariable Integer custumerId){
-        FraudCheckHistory fraudCheck=service.isFraudulentCustomer(custumerId);
+    public FraudCheckHistory isFraudster(@PathVariable Integer customerId){
+        FraudCheckHistory fraudCheck=service.isFraudulentCustomer(customerId);
 
-        System.out.println("Test");
         return fraudCheck;
 
 

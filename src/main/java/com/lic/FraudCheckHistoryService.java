@@ -13,8 +13,14 @@ public class FraudCheckHistoryService {
 
     public FraudCheckHistory isFraudulentCustomer(Integer customerId){
         FraudCheckHistory fraudCheck=repository.save(
-                new FraudCheckHistory(customerId,false, LocalDateTime.now())
+                new FraudCheckHistory(customerId,
+                        getFraud(customerId),
+                        LocalDateTime.now())
         );
         return fraudCheck;
+    }
+
+    public boolean getFraud(Integer customerId){
+        return customerId%2==0;
     }
 }
